@@ -62,7 +62,7 @@ export const Posts: CollectionConfig = {
     {
       name: 'excerpt',
       type: 'textarea',
-      required: true,
+      required: false,
       admin: { description: 'One or two sentences, shown in the list.' },
     },
     {
