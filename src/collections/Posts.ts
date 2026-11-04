@@ -1,6 +1,7 @@
-import { slugField, type CollectionConfig } from 'payload'
+import type { CollectionConfig } from 'payload'
 
-import { anyone, loggedIn, publishedOrLoggedIn } from '../access'
+import { loggedIn, publishedOrLoggedIn } from '../access'
+import { slugField } from '../fields/slug'
 
 export const POST_TYPES = [
   { label: 'Research', value: 'research' },
@@ -202,6 +203,6 @@ export const Posts: CollectionConfig = {
       hasMany: true,
       admin: { position: 'sidebar' },
     },
-    slugField({ useAsSlug: 'title', position: 'sidebar' }),
+    slugField('sidebar'),
   ],
 }

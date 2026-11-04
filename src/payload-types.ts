@@ -207,9 +207,8 @@ export interface Post {
   publishedDate: string;
   authors?: (number | TeamMember)[] | null;
   /**
-   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   * Leave empty to generate it from the title.
    */
-  generateSlug?: boolean | null;
   slug: string;
   updatedAt: string;
   createdAt: string;
@@ -225,9 +224,8 @@ export interface Topic {
   id: number;
   title: string;
   /**
-   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   * Leave empty to generate it from the title.
    */
-  generateSlug?: boolean | null;
   slug: string;
   /**
    * Pick a colour no other topic uses, so charts stay readable.
@@ -498,7 +496,6 @@ export interface PostsSelect<T extends boolean = true> {
       };
   publishedDate?: T;
   authors?: T;
-  generateSlug?: T;
   slug?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -558,7 +555,6 @@ export interface TeamMembersSelect<T extends boolean = true> {
  */
 export interface TopicsSelect<T extends boolean = true> {
   title?: T;
-  generateSlug?: T;
   slug?: T;
   color?: T;
   order?: T;

@@ -1,6 +1,7 @@
-import { slugField, type CollectionConfig } from 'payload'
+import type { CollectionConfig } from 'payload'
 
 import { anyone, loggedIn } from '../access'
+import { slugField } from '../fields/slug'
 
 export const TOPIC_COLORS = [
   { label: 'Blue', value: 'blue' },
@@ -30,7 +31,7 @@ export const Topics: CollectionConfig = {
   },
   fields: [
     { name: 'title', type: 'text', required: true },
-    slugField({ useAsSlug: 'title' }),
+    slugField(),
     {
       name: 'color',
       type: 'select',
