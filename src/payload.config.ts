@@ -47,6 +47,9 @@ export default buildConfig({
   plugins: [
     vercelBlobStorage({
       enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
+      // Keeps the database schema the same with or without a token, so migrations
+      // created locally also match production.
+      alwaysInsertFields: true,
       collections: { media: true },
       token: process.env.BLOB_READ_WRITE_TOKEN,
       // Vercel functions refuse request bodies over 4.5 MB, so the browser uploads directly.
