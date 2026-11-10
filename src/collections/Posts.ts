@@ -71,16 +71,29 @@ export const Posts: CollectionConfig = {
         {
           label: 'Content',
           fields: [
-            { name: 'coverImage', type: 'upload', relationTo: 'media' },
+            {
+              name: 'coverImage',
+              type: 'upload',
+              relationTo: 'media',
+              // The cover is shown with next/image, so it has to be an image.
+              filterOptions: { mimeType: { contains: 'image' } },
+            },
             { name: 'body', type: 'richText' },
             {
               name: 'gallery',
               label: 'Visual documentation',
               type: 'array',
-              labels: { singular: 'Image', plural: 'Images' },
-              admin: { description: 'Sketches, wireframes, screenshots, photos.' },
+              labels: { singular: 'Image or video', plural: 'Images and videos' },
+              admin: { description: 'Sketches, wireframes, screenshots, photos, screen recordings.' },
               fields: [
-                { name: 'image', type: 'upload', relationTo: 'media', required: true },
+                {
+                  // Still called "image" so the database column stays the same; it accepts videos too.
+                  name: 'image',
+                  label: 'Image or video',
+                  type: 'upload',
+                  relationTo: 'media',
+                  required: true,
+                },
                 { name: 'caption', type: 'text' },
               ],
             },

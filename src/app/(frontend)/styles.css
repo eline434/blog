@@ -225,7 +225,7 @@ img { display: block; max-width: 100%; height: auto; }
 .prose li { margin-block: 0.25em; }
 .prose blockquote { margin: 0; padding-left: 16px; border-left: 2px solid var(--axis); color: var(--ink-2); }
 .prose code { font-family: var(--font-mono), monospace; font-size: 0.9em; background: var(--wash); padding: 0.1em 0.3em; border-radius: 3px; }
-.figure img { border-radius: 4px; }
+.figure img, .figure video { display: block; width: 100%; height: auto; border-radius: 4px; }
 .figure figcaption { margin-top: 6px; color: var(--ink-2); font-size: 0.875rem; }
 
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 20px; }

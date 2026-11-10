@@ -129,6 +129,14 @@ export default async function PostPage({ params }: Props) {
           <div className="gallery">
             {post.gallery.map((item) => {
               const image = media(item.image)
+              if (image?.mimeType?.startsWith('video/')) {
+                return (
+                  <figure key={item.id} className="figure">
+                    <video src={image.url} controls playsInline preload="metadata" aria-label={image.alt} />
+                    {item.caption && <figcaption>{item.caption}</figcaption>}
+                  </figure>
+                )
+              }
               if (!image?.width || !image.height) return null
               return (
                 <figure key={item.id} className="figure">
